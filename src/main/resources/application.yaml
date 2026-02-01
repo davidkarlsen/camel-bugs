@@ -1,0 +1,60 @@
+management:
+  prometheus:
+    metrics:
+      export:
+        enabled: true
+  observations:
+    annotations:
+      enabled: true
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+  endpoint:
+    health:
+      show-details: always
+      show-components: always
+  info:
+    java:
+      enabled: true
+    os:
+      enabled: true
+    env:
+      enabled: true
+    process:
+      enabled: true
+
+
+camel:
+  component:
+    http:
+      log-http-activity: true
+      connection-request-timeout: 3000
+      connect-timeout: 3000
+      response-timeout: 30000
+      max-total-connections: 100
+      connection-time-to-live: 600000 # 10 minutes
+      connections-per-route: 20 # how parallel connections to the same route
+  dataformat:
+    base64:
+      line-length: 9999
+      line-separator: ""
+  tracing:
+    enabled: true
+  thread:
+    virtual:
+      enabled: true
+  springboot:
+    name: ${spring.application.name}
+    main-run-controller: true
+  main:
+    message-history: true
+    source-location-enabled: true
+    endpoint-runtime-statistics-enabled: true
+    bean-introspection-extended-statistics: true
+    load-statistics-enabled: true
+    stream-caching-statistics-enabled: true
+    type-converter-statistics-enabled: true
+    exchange-factory-statistics-enabled: true
+    use-mdc-logging: true
+    dev-console-enabled: true
