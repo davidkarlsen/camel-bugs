@@ -39,7 +39,8 @@ camel:
     base64:
       line-length: 9999
       line-separator: ""
-  tracing:
+    enabled: true
+  telemetry:
     enabled: true
   thread:
     virtual:
